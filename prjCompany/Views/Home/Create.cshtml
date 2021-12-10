@@ -1,0 +1,46 @@
+﻿@model   IEnumerable<prjCompany.Models.tDeparment>
+@{
+    ViewBag.Title = "員工新增";
+}
+
+<h2>員工新增</h2>
+<form method="post" action="@Url.Action("Create")">
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label for="fEmpId" class="control-label col-md-2">編號</label>
+            <div class="col-md-10">
+                <input type="text" id="fEmpId" name="fEmpId" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fDepId" class="control-label col-md-2">部門</label>
+            <div class="col-md-10">
+                <select id="fDepId" name="fDepId" class="form-control">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.fDepId">@item.fDepName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fName" class="control-label col-md-2">姓名</label>
+            <div class="col-md-10">
+                <input type="text" id="fEName" name="fName" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fPhone" class="control-label col-md-2">電話</label>
+            <div class="col-md-10">
+                <input type="text" id="fPhone" name="fPhone" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+</form>
+
